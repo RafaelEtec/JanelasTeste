@@ -21,6 +21,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jB_3 = new javax.swing.JButton();
         jB_4 = new javax.swing.JButton();
         Jp_Menu = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 255));
@@ -55,6 +56,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jB_4.setFont(new java.awt.Font("Sitka Text", 1, 12)); // NOI18N
         jB_4.setText("MSG Opções");
+        jB_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jB_4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -86,15 +92,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
         Jp_Menu.setBackground(new java.awt.Color(204, 204, 204));
         Jp_Menu.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Preencha os dados do cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Sitka Text", 1, 14))); // NOI18N
 
+        jButton1.setFont(new java.awt.Font("Sitka Subheading", 1, 12)); // NOI18N
+        jButton1.setText("Chamar JDialog");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Jp_MenuLayout = new javax.swing.GroupLayout(Jp_Menu);
         Jp_Menu.setLayout(Jp_MenuLayout);
         Jp_MenuLayout.setHorizontalGroup(
             Jp_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 353, Short.MAX_VALUE)
+            .addGroup(Jp_MenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE)
+                .addContainerGap())
         );
         Jp_MenuLayout.setVerticalGroup(
             Jp_MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Jp_MenuLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,6 +148,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         String retorno = JOptionPane.showInputDialog(this, "Digite seu Nome: ");
         JOptionPane.showMessageDialog(this, "Bem-vindo: " + retorno);
     }//GEN-LAST:event_jB_3ActionPerformed
+
+    private void jB_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jB_4ActionPerformed
+        JOptionPane.showOptionDialog(rootPane,
+                "Qual Medida usar",
+                "Caixa de opções",
+                0,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                new String[] {"KM", "Milhas", "Jardas", "Polegadas"},
+                "KM");
+    }//GEN-LAST:event_jB_4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DialogoEndereco novoDialogo = new DialogoEndereco(this, true);
+        novoDialogo.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -171,6 +206,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton jB_2;
     private javax.swing.JButton jB_3;
     private javax.swing.JButton jB_4;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
